@@ -36,8 +36,8 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
   // Check if we have a custom vector mockup for this product
   // Otherwise, fallback to the standard Unsplash image
   
-  // Invegrow Logo SVG helper
-  const renderInvegrowLogo = (color = '#FFFFFF') => (
+  // Earthcure Logo SVG helper
+  const renderEarthcureLogo = (color = '#FFFFFF') => (
     <div className="flex flex-col items-center justify-center">
       <svg className="w-6 h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M50 15L78 45L50 78L22 45L50 15Z" stroke={color} strokeWidth="2.5" strokeLinejoin="round" />
@@ -47,7 +47,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
         <line x1="22" y1="45" x2="78" y2="45" stroke={color} strokeWidth="1.5" opacity="0.4" />
       </svg>
       <span className="text-[10px] tracking-[0.3em] font-light mt-1 text-center" style={{ color }}>
-        INVEGROW
+        EARTHCURE
       </span>
     </div>
   );
@@ -88,7 +88,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
                       <svg className="w-3.5 h-3.5" viewBox="0 0 100 100" fill="none">
                         <path d="M50 15L78 45L50 78L22 45L50 15Z" stroke="#FFFFFF" strokeWidth="4" />
                       </svg>
-                      <span className="text-[4px] tracking-widest text-[#FFFFFF]/80 uppercase mt-0.5">INVEGROW</span>
+                      <span className="text-[4px] tracking-widest text-[#FFFFFF]/80 uppercase mt-0.5">EARTHCURE</span>
                     </div>
                     {/* Product description */}
                     <div className="text-[4.5px] font-mono text-[#FFFFFF]/75 mt-0.5 leading-none">Broad Spectrum</div>
@@ -131,7 +131,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
                       <svg className="w-3.5 h-3.5" viewBox="0 0 100 100" fill="none">
                         <path d="M50 15L78 45L50 78L22 45L50 15Z" stroke="#FFFFFF" strokeWidth="4" />
                       </svg>
-                      <span className="text-[4px] tracking-widest text-[#FFFFFF]/80 uppercase mt-0.5">INVEGROW</span>
+                      <span className="text-[4px] tracking-widest text-[#FFFFFF]/80 uppercase mt-0.5">EARTHCURE</span>
                     </div>
                     {/* Product description */}
                     <div className="text-[4.5px] font-mono text-[#FFFFFF]/75 mt-0.5 leading-none">Broad Spectrum</div>
@@ -175,7 +175,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
                       <svg className="w-4 h-4" viewBox="0 0 100 100" fill="none">
                         <path d="M50 15L78 45L50 78L22 45L50 15Z" stroke="#FFFFFF" strokeWidth="4" />
                       </svg>
-                      <span className="text-[4.5px] tracking-widest text-[#FFFFFF]/80 uppercase mt-0.5">INVEGROW</span>
+                      <span className="text-[4.5px] tracking-widest text-[#FFFFFF]/80 uppercase mt-0.5">EARTHCURE</span>
                     </div>
                     {/* Product description */}
                     <div className="text-[5px] font-mono text-[#FFFFFF]/75 mt-0.5 leading-none">Broad Spectrum</div>
@@ -217,7 +217,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
             
             {/* Brand Logo Header */}
             <div className="mt-2 scale-90">
-              {renderInvegrowLogo('#FFFFFF')}
+              {renderEarthcureLogo('#FFFFFF')}
             </div>
 
             {/* Product labels */}
@@ -281,7 +281,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
             
             {/* Brand Logo Header */}
             <div className="mt-2 scale-90">
-              {renderInvegrowLogo('#FFFFFF')}
+              {renderEarthcureLogo('#FFFFFF')}
             </div>
 
             {/* Product labels */}
@@ -344,7 +344,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
             
             {/* Brand Logo Header */}
             <div className="mt-2 scale-90">
-              {renderInvegrowLogo('#FFFFFF')}
+              {renderEarthcureLogo('#FFFFFF')}
             </div>
 
             {/* Product labels */}
@@ -431,7 +431,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
                   <svg className="w-3.5 h-3.5 mx-auto" viewBox="0 0 100 100" fill="none">
                     <path d="M50 15L78 45L50 78L22 45L50 15Z" stroke="#FFFFFF" strokeWidth="4" />
                   </svg>
-                  <span className="text-[4px] tracking-[0.2em] font-light block text-[#FFFFFF]/75">INVEGROW</span>
+                  <span className="text-[4px] tracking-[0.2em] font-light block text-[#FFFFFF]/75">EARTHCURE</span>
                 </div>
 
                 {/* Oil name */}
@@ -486,7 +486,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
                   <svg className="w-3.5 h-3.5 mx-auto" viewBox="0 0 100 100" fill="none">
                     <path d="M50 15L78 45L50 78L22 45L50 15Z" stroke="#FFFFFF" strokeWidth="4" />
                   </svg>
-                  <span className="text-[4px] tracking-[0.2em] font-light block text-[#FFFFFF]/75">INVEGROW</span>
+                  <span className="text-[4px] tracking-[0.2em] font-light block text-[#FFFFFF]/75">EARTHCURE</span>
                 </div>
 
                 {/* Cosmetic designation */}
@@ -586,7 +586,7 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
       }
       return (
         <div className={`w-full h-full bg-[#182C28] flex items-center justify-center text-center p-4 border border-[#2D4540]/60 ${className}`}>
-          {renderInvegrowLogo('#D4AF37')}
+          {renderEarthcureLogo('#D4AF37')}
         </div>
       );
   }

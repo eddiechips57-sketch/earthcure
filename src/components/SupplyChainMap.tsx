@@ -38,7 +38,7 @@ export default function SupplyChainMap() {
             The Trans-African <span className="font-normal text-[#D4AF37] italic">Soil-to-Bottle</span> Journey
           </h2>
           <p className="text-[#E9E4D9]/80 text-sm md:text-base font-sans">
-            Explore Invegrow’s legal, GACP/GMP certified supply chain to trace how raw active botanicals are harvested in Malawi and delivered safely to you in South Africa.
+            Explore our legal, GACP/GMP certified supply chain to trace how raw active botanicals are harvested in Malawi and delivered safely to you in South Africa.
           </p>
         </div>
 

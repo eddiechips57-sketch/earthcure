@@ -1,6 +1,6 @@
 {
   "name": "Earthcure",
-  "description": "An immersive, state-of-the-art digital storefront showcasing premium Invegrow industrial hemp products tailored for the South African market.",
+  "description": "An immersive, state-of-the-art digital storefront showcasing premium organic hemp products tailored for the South African market.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

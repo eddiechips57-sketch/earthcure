@@ -133,7 +133,7 @@ export default function CartDrawer({
                       </div>
                       <h4 className="text-base font-display font-medium text-[#E9E4D9]">Your basket is empty</h4>
                       <p className="text-xs text-[#E9E4D9]/70 max-w-xs">
-                        Explore our catalogue of legal, licensed Invegrow industrial hemp products tailored for South African wellness.
+                        Explore our catalogue of legal, licensed industrial hemp products tailored for South African wellness.
                       </p>
                       <button
                         onClick={onClose}
@@ -381,7 +381,7 @@ export default function CartDrawer({
                       Thank You! Your Earthcure is Sourcing...
                     </h4>
                     <p className="text-xs text-[#E9E4D9]/70 leading-relaxed max-w-xs mx-auto">
-                      Your order is dispatched under legal SA Industrial Hemp Permit compliance. Invegrow oils are being boxed at our Cape Town labs. We sent your tracking code to your email!
+                      Your order is dispatched under legal SA Industrial Hemp Permit compliance. Your premium oils are being boxed at our Cape Town labs. We sent your tracking code to your email!
                     </p>
                   </div>
 

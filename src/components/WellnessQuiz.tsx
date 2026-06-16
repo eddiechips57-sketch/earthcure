@@ -195,7 +195,7 @@ export default function WellnessQuiz({ onAddProductsToCart, onOpenCart }: Wellne
                       </span>
                     </div>
                     <p className="text-xs text-[#E9E4D9]/75 leading-relaxed max-w-xl">
-                      These formulas compound benefits when utilized together. The nutrient fats in Invegrow’s carrier oils accelerate the absorption of cannabinoid particles, maximizing your target relief pathway.
+                      These formulas compound benefits when utilized together. The nutrient fats in our primary carrier oils accelerate the absorption of cannabinoid particles, maximizing your target relief pathway.
                     </p>
                   </div>
                   <button

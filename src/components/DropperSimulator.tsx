@@ -280,7 +280,7 @@ export default function DropperSimulator() {
                 </div>
                 {/* Earthcure stylized logo on glass bottle */}
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
-                  <span className="text-[10px] font-mono tracking-[0.15em] text-[#E9E4D9]/80 uppercase font-bold">Invegrow</span>
+                  <span className="text-[10px] font-mono tracking-[0.15em] text-[#E9E4D9]/80 uppercase font-bold">Earthcure</span>
                   <Droplet className="w-5 h-5 text-[#D4AF37] my-1 fill-[#D4AF37]/20" />
                   <span className="text-[7px] font-mono text-[#E9E4D9]/50">Malawi Export</span>
                 </div>

@@ -107,8 +107,8 @@ export default function App() {
   const faqs = [
     {
       id: 1,
-      q: 'Is Earthcure / Invegrow legal in South Africa?',
-      a: 'Completely. Invegrow is a fully licensed and legal industrial cannabis/hemp cultivator in Malawi, governed under authorized state frameworks. Earthcure processes and distributes these products inside South Africa fully compliant with SA Health Guidelines, ensuring 0.0% THC concentration across our oral remedies.'
+      q: 'Is Earthcure legal in South Africa?',
+      a: 'Completely. Earthcure\'s supply chain partners are fully licensed and legal industrial cannabis/hemp cultivators in Malawi, governed under authorized state frameworks. Earthcure processes and distributes these products inside South Africa fully compliant with SA Health Guidelines, ensuring 0.0% THC concentration across our oral remedies.'
     },
     {
       id: 2,
@@ -122,8 +122,8 @@ export default function App() {
     },
     {
       id: 4,
-      q: 'Why does Earthcure prioritize Invegrow over other hemp producers?',
-      a: 'Invegrow pioneered licensed high-altitude regenerative hemp agricultural sciences in Malawi. The tropical sun, sustainable soil, and zero-pesticide agroforestry practices create dense essential fatty acids and full cannabinoids unmatched by mass commercial European/US green-houses, yielding far higher wellness efficacy for the end consumer.'
+      q: 'Why does Earthcure prioritize Malawian hemp over other producers?',
+      a: 'Malawi has ideal growing conditions for clean, high-altitude regenerative hemp agricultural sciences. The tropical sun, sustainable soil, and zero-pesticide agroforestry practices create dense essential fatty acids and full cannabinoids unmatched by mass commercial European/US green-houses, yielding far higher wellness efficacy for the end consumer.'
     }
   ];
 
@@ -535,7 +535,7 @@ export default function App() {
               <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Partner Sourcing</h4>
               <div className="text-xs text-[#E9E4D9]/70 space-y-2 leading-relaxed">
                 <p>
-                  <strong className="text-[#E9E4D9]">Invegrow Malawi Ltd:</strong> <br />
+                  <strong className="text-[#E9E4D9]">Malawian Cultivators:</strong> <br />
                   Chilungamo Area, Salima Highways, Lilongwe, Malawi
                 </p>
                 <p>

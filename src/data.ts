@@ -7,7 +7,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     tagline: 'First licensed cultivator & processor by the Malawian Government',
     category: 'wellness',
     description: 'Pure, GACP/GMP certified broad spectrum CBD extracts cultivated naturally under the warm Malawian sun.',
-    extendedDescription: 'Harvested from Invegrow’s legal organic crops in Salima and Lilongwe, Malawi. These premium oils undergo meticulous low-temperature ethanol extraction in GACP/GMP certified facilities to isolate active cannabinoids, ensuring a completely non-psychoactive relief profile conforming highly to South African pharmaceutical regulations. Available in 300mg and 600mg formulations (with a potent 1200mg selection coming soon).',
+    extendedDescription: 'Harvested from legal organic crops in Salima and Lilongwe, Malawi. These premium oils undergo meticulous low-temperature ethanol extraction in GACP/GMP certified facilities to isolate active cannabinoids, ensuring a completely non-psychoactive relief profile conforming highly to South African pharmaceutical regulations. Available in 300mg and 600mg formulations (with a potent 1200mg selection coming soon).',
     benefits: [
       'GACP/GMP Certified cultivation & processing standards',
       'Provides daily nervous system calming and anxiety relief',
@@ -179,14 +179,14 @@ export const INVEGROW_PRODUCTS: Product[] = [
     tagline: 'Deep soothing recovery for dry, irritated skin & joints',
     category: 'skincare',
     description: 'A deeply nourishing skin ointment rich in high-potency CBD to help your skin find natural balance.',
-    extendedDescription: 'A fully licensed Malawi-made product combining Invegrow cold-pressed hemp seed oil, unrefined African shea butter, organic therapeutic herbs, and broad spectrum cannabidiol. Ideal for soothing dry target zones, eczema-prone skin, and tired over-exercised joints.',
+    extendedDescription: 'A fully licensed Malawi-made product combining organic cold-pressed hemp seed oil, unrefined African shea butter, organic therapeutic herbs, and broad spectrum cannabidiol. Ideal for soothing dry target zones, eczema-prone skin, and tired over-exercised joints.',
     benefits: [
       'Eases dry spots, skin scaling, and epidermal itching',
       'Provides intense local moisture lock with unrefined Shea Butter',
       'Supports target recovery for sore joints and stiff muscles'
     ],
     dosage: 'Warm a pea-sized draft of balm between fingers and rub gently into dry areas or sore muscle clusters until fully absorbed.',
-    ingredients: ['Invegrow Cold-Pressed Hemp Seed Oil', 'Broad Spectrum Cannabidiol', 'Raw African Shea Butter', 'Natural Beeswax', 'Eucalyptus & Peppermint Botanical Oils'],
+    ingredients: ['Broad Spectrum Cannabidiol', 'Pure Cold-Pressed Hemp Seed Carrier Oil', 'Raw African Shea Butter', 'Natural Beeswax', 'Eucalyptus & Peppermint Botanical Oils'],
     size: '50ml Glass Jar',
     priceZAR: 160,
     rating: 4.9,
@@ -231,7 +231,7 @@ export const SOIL_TO_BOTTLE_JOURNEY: JourneyStage[] = [
     id: 1,
     title: 'GACP Legal Sowing',
     source: 'Lilongwe Farm Plains',
-    description: 'Invegrow, Malawi’s historic first licensed grower and processor, sows legal organic seeds under strict GACP/GMP certified farming guidelines.',
+    description: 'Our partners, Malawi’s historic licensed growers and processors, sow legal organic seeds under strict GACP/GMP certified farming guidelines.',
     metric: 'First Malawi License (Est. 2013)',
     iconName: 'Sprout'
   },
@@ -246,7 +246,7 @@ export const SOIL_TO_BOTTLE_JOURNEY: JourneyStage[] = [
   {
     id: 3,
     title: 'GACP / GMP Cold Squeezing',
-    source: 'Invegrow Processing Lab',
+    source: 'Malawi Partner Extraction Facility',
     description: 'Cured seeds and flower heads are mechanically pressed at cold temperatures or ethanol-extracted in a GMP certified modern facility, maintaining lipid molecular chains.',
     metric: 'Woman-Founded & Led Business',
     iconName: 'Cpu'
