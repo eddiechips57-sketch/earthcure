@@ -5,6 +5,7 @@ import { INVEGROW_PRODUCTS } from '../data';
 import { Product, Category } from '../types';
 import ThreeDCard from './ThreeDCard';
 import ProductVisualizer from './ProductVisualizer';
+import CustomerReviews from './CustomerReviews';
 
 interface ProductSectionProps {
   onAddToCart: (product: Product) => void;
@@ -272,7 +273,7 @@ export default function ProductSection({ onAddToCart }: ProductSectionProps) {
               <div className="flex justify-between items-start border-b border-[#2D4540]/60 pb-4">
                 <div className="space-y-0.5">
                   <span className="text-[10px] uppercase font-mono tracking-[0.2em] text-[#D4AF37] font-bold">
-                    Sourcing Specifications
+                    Product Specifications
                   </span>
                   <h3 className="text-xl md:text-2xl font-display font-light uppercase tracking-wider text-[#E9E4D9]">
                     {selectedProductDetails.name}
@@ -390,6 +391,17 @@ export default function ProductSection({ onAddToCart }: ProductSectionProps) {
 
                 </div>
 
+              </div>
+              
+              <div className="mt-8 pt-4 border-t border-[#2D4540]/60">
+                <CustomerReviews 
+                  product={selectedProductDetails} 
+                  onReviewAdded={(newRating, newCount) => {
+                    // Update current selected spec sheet averages inline
+                    selectedProductDetails.rating = newRating;
+                    selectedProductDetails.reviewsCount = newCount;
+                  }}
+                />
               </div>
 
             </motion.div>

@@ -19,7 +19,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 390,
     rating: 4.9,
     reviewsCount: 186,
-    imageUrl: '/invegrow_cbd_tinctures.png',
+    imageUrl: '/cannabis_oil.png',
     inStock: true
   },
   {
@@ -40,7 +40,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 295,
     rating: 4.9,
     reviewsCount: 94,
-    imageUrl: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80',
+    imageUrl: '/honey_cbd.png',
     inStock: true
   },
   {
@@ -61,7 +61,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 110,
     rating: 4.8,
     reviewsCount: 78,
-    imageUrl: '/invegrow_cbd_tea.png',
+    imageUrl: '/herbal_cbd_tea.png',
     inStock: true
   },
   {
@@ -82,7 +82,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 195,
     rating: 5.0,
     reviewsCount: 112,
-    imageUrl: '/invegrow_shelled_seed.jpg',
+    imageUrl: '/hemp_shelled_seeds.png',
     inStock: true,
     nutritionFacts: {
       servingSize: '30g',
@@ -112,7 +112,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 240,
     rating: 4.8,
     reviewsCount: 135,
-    imageUrl: '/invegrow_product_range.jpg',
+    imageUrl: '/catalog_image.png',
     inStock: true,
     nutritionFacts: {
       servingSize: '30g',
@@ -141,7 +141,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 150,
     rating: 4.9,
     reviewsCount: 86,
-    imageUrl: '/invegrow_hemp_seed_oil.png',
+    imageUrl: '/cooking_hemp_seed_oil.png',
     inStock: true,
     nutritionFacts: {
       servingSize: '1 Tablespoon (15ml)',
@@ -170,7 +170,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 85,
     rating: 4.7,
     reviewsCount: 64,
-    imageUrl: '/invegrow_hair_body_oil.png',
+    imageUrl: '/hair_and_body_oil.png',
     inStock: true
   },
   {
@@ -191,7 +191,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 160,
     rating: 4.9,
     reviewsCount: 122,
-    imageUrl: '/invegrow_crude_oil.jpg',
+    imageUrl: '/catalog_image.png',
     inStock: true
   },
   {
@@ -212,7 +212,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 245,
     rating: 4.9,
     reviewsCount: 47,
-    imageUrl: 'https://images.unsplash.com/photo-1538610113083-090623e1ca87?auto=format&fit=crop&w=600&q=80',
+    imageUrl: '/smoking_flower.png',
     inStock: true
   }
 ];

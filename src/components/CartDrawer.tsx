@@ -378,7 +378,7 @@ export default function CartDrawer({
                   <div className="space-y-1.5 text-center">
                     <span className="text-xs uppercase font-mono tracking-widest text-[#D4AF37] font-extrabold block">Order Confirmed!</span>
                     <h4 className="text-md font-display font-light uppercase tracking-wider text-[#E9E4D9] leading-tight">
-                      Thank You! Your Earthcure is Sourcing...
+                      Thank You! Your Earthcure is Processing...
                     </h4>
                     <p className="text-xs text-[#E9E4D9]/70 leading-relaxed max-w-xs mx-auto">
                       Your order is dispatched under legal SA Industrial Hemp Permit compliance. Your premium oils are being boxed at our Cape Town labs. We sent your tracking code to your email!
@@ -412,7 +412,7 @@ export default function CartDrawer({
                       }}
                       className="w-full py-3.5 bg-[#253A36] hover:bg-[#2A423D] border border-[#2D4540] text-white font-sans text-xs uppercase tracking-wider font-semibold rounded-none transition"
                     >
-                      Continue Sourcing Goods
+                      Continue Shopping
                     </button>
                   </div>
                 </motion.div>

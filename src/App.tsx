@@ -22,10 +22,12 @@ import { INVEGROW_PRODUCTS } from './data';
 import ThreeDCard from './components/ThreeDCard';
 import DropperSimulator from './components/DropperSimulator';
 import SupplyChainMap from './components/SupplyChainMap';
+import BatchChecker from './components/BatchChecker';
 import WellnessQuiz from './components/WellnessQuiz';
 import ProductSection from './components/ProductSection';
 import CartDrawer from './components/CartDrawer';
 import EmoticonEffects, { triggerEmoticons } from './components/EmoticonEffects';
+import ConsultationBot from './components/ConsultationBot';
 
 export default function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -145,7 +147,7 @@ export default function App() {
             </div>
             <div className="text-left font-display">
               <span className="text-xl tracking-wider font-light uppercase text-[#E9E4D9] block leading-none">Earthcure</span>
-              <span className="text-[9px] uppercase font-mono tracking-[0.2em] text-[#D4AF37] font-semibold block pt-1">Premium Hemp Sourcing</span>
+              <span className="text-[9px] uppercase font-mono tracking-[0.2em] text-[#D4AF37] font-semibold block pt-1">Premium Organic Hemp</span>
             </div>
           </a>
 
@@ -281,7 +283,7 @@ export default function App() {
           <div className="lg:col-span-6 space-y-8 text-left relative z-10">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#253A36] rounded-full text-[10px] font-mono font-semibold tracking-[0.3em] text-[#D4AF37] uppercase border border-[#2A423D]/60 shadow-inner">
-                <Compass className="w-3.5 h-3.5" /> High-Altitude African Sourcing
+                <Compass className="w-3.5 h-3.5" /> High-Altitude African Origin
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-light tracking-tight text-[#E9E4D9] leading-[1.05]">
                 Nourish Your Body <br /> With Certified <br />
@@ -341,7 +343,7 @@ export default function App() {
                     Product Highlight
                   </span>
                   <p className="text-3xl font-display font-light text-white tracking-tight leading-tight uppercase font-light">
-                    Cold-Pressed <br /> Organic Sourcing
+                    Cold-Pressed <br /> Organic Harvest
                   </p>
                   <p className="text-xs text-[#E9E4D9]/80 leading-relaxed max-w-xs pt-1 font-sans">
                     Grown on Malawi’s highest solar plains, our seeds are mechanically pressed at cold bounds to lock in antioxidants.
@@ -409,6 +411,7 @@ export default function App() {
         {/* TRANS-AFRICAN SUPPLY JOURNEY: Tracing origin */}
         <section id="soil-to-bottle-section" className="scroll-mt-24">
           <SupplyChainMap />
+          <BatchChecker />
         </section>
 
         {/* CALCULATING ENGINE DOSAGE PIPETTE DROPPERS */}
@@ -492,6 +495,9 @@ export default function App() {
       {/* Global emoticon/emoji physics visualizer element */}
       <EmoticonEffects />
 
+      {/* Floating Botanical Helpdesk Consultation & Track Assistant */}
+      <ConsultationBot />
+
       {/* General High-End Footer */}
       <footer className="bg-[#152422] text-[#E9E4D9] pt-20 pb-8 mt-24 border-t border-[#2D4540]/60 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -521,7 +527,7 @@ export default function App() {
 
             {/* Quick Links */}
             <div className="space-y-3.5">
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Store Sourcing</h4>
+              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Our Store</h4>
               <ul className="space-y-2.5 text-xs text-[#E9E4D9]/70">
                 <li><a href="#catalogue-section" className="hover:text-[#D4AF37] transition-colors">Hemp Supplement Catalog</a></li>
                 <li><a href="#soil-to-bottle-section" className="hover:text-[#D4AF37] transition-colors">Malawian Farm Origin</a></li>
@@ -530,9 +536,9 @@ export default function App() {
               </ul>
             </div>
 
-            {/* Sourcing Hub Locations info */}
+            {/* Partner Locations info */}
             <div className="space-y-3.5">
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Partner Sourcing</h4>
+              <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Partner Farms</h4>
               <div className="text-xs text-[#E9E4D9]/70 space-y-2 leading-relaxed">
                 <p>
                   <strong className="text-[#E9E4D9]">Malawian Cultivators:</strong> <br />

@@ -130,7 +130,7 @@ export default function SupplyChainMap() {
             <div className="mt-8 pt-6 border-t border-[#2D4540]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 z-10 w-full text-xs font-mono text-[#E9E4D9]/60">
               <div className="flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 text-[#D4AF37]" />
-                <span>Verified GACP/GMP Sourcing — Woman-Founded & Led Business</span>
+                <span>Verified GACP/GMP Standards — Woman-Founded & Led Business</span>
               </div>
               <div className="flex items-center gap-1.5 bg-[#1B2D2A] px-2.5 py-1 rounded-none border border-[#2D4540]/60">
                 <span className="inline-block w-2.5 h-2.5 rounded-none bg-emerald-400 animate-pulse" />

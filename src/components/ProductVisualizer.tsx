@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface ProductVisualizerProps {
   productId: string;
@@ -7,8 +7,10 @@ interface ProductVisualizerProps {
 }
 
 export default function ProductVisualizer({ productId, className = '', fallbackUrl = '' }: ProductVisualizerProps) {
-  // Prioritize showing actual uploaded local images containing official photography
-  if (fallbackUrl && (fallbackUrl.startsWith('/') || fallbackUrl.startsWith('public/'))) {
+  const [hasError, setHasError] = useState(false);
+
+  // Prioritize showing actual uploaded local or remote images containing official photography
+  if (fallbackUrl && !hasError) {
     return (
       <div className={`w-full h-full bg-gradient-to-br from-[#122421] to-[#0A1614] flex items-center justify-center p-2.5 overflow-hidden relative group rounded-none border border-[#2D4540]/30 ${className}`}>
         {/* Subtle decorative target scope grid line */}
@@ -20,8 +22,8 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
           alt={productId} 
           className="max-w-full max-h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] group-hover:scale-[1.03] transition-transform duration-700 ease-out"
           referrerPolicy="no-referrer"
-          onError={(e) => {
-            console.error('Failed to load real product image:', fallbackUrl);
+          onError={() => {
+            setHasError(true);
           }}
         />
         
