@@ -47,6 +47,15 @@ export default function ConsultationBot() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [typedInput, setTypedInput] = useState<string>('');
   const [hasNewAlert, setHasNewAlert] = useState<boolean>(true);
+  const [isTyping, setIsTyping] = useState<boolean>(false);
+  const chatEndRef = React.useRef<HTMLDivElement>(null);
+
+  // Keep chat scrolled to bottom
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, isTyping]);
 
   // Initial welcome message
   useEffect(() => {
@@ -66,8 +75,8 @@ export default function ConsultationBot() {
     ]);
   }, []);
 
-  const handleSendMessage = (text: string) => {
-    if (!text.trim()) return;
+  const handleSendMessage = async (text: string) => {
+    if (!text.trim() || isTyping) return;
 
     // Append user query
     const userMsg: ChatMessage = {
@@ -77,13 +86,40 @@ export default function ConsultationBot() {
       timestamp: new Date()
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    const updatedMessages = [...messages, userMsg];
+    setMessages(updatedMessages);
     setTypedInput('');
+    setIsTyping(true);
 
-    // Simulate thinking delay
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: updatedMessages })
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failing, using fallback');
+      }
+
+      const data = await response.json();
+      
+      const botMsg: ChatMessage = {
+        id: `bot_${Date.now()}`,
+        sender: 'bot',
+        text: data.text,
+        timestamp: new Date()
+      };
+
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (error) {
+      console.warn('API error, falling back to local rule engine:', error);
+      
+      // Simulate rule-based response with delay for natural user feel
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
       const lowerText = text.toLowerCase();
-      let botText = "I want to make sure I guide you correctly. I can answer inquiries about SA legal compliance, standard dosages, express courier delivery fees, or help you track current parcels!";
+      let botText = "I want to make sure I guide you correctly. I can answer inquiries about SA legal compliance, standard dosages, express courier delivery fees, or help you track current parcels! Feel free to reach out to us at 07493208683 on WhatsApp.";
       let suggestions = ['Is this 100% legal in SA?', 'How long does shipping take?', 'What is the standard dosage?'];
       let trackingTimeline: ChatMessage['trackingTimeline'] = undefined;
 
@@ -127,7 +163,9 @@ export default function ConsultationBot() {
       };
 
       setMessages((prev) => [...prev, botMsg]);
-    }, 900);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   const handleOpenBot = () => {
@@ -262,6 +300,21 @@ export default function ConsultationBot() {
                   )}
                 </div>
               ))}
+              
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="bg-[#253A36]/50 text-[#E9E4D9]/75 rounded-2xl rounded-tl-none border border-[#2D4540]/40 p-3 text-xs flex items-center gap-2">
+                    <span className="flex gap-1 shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </span>
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[#D4AF37]">Nyasa is consulting...</span>
+                  </div>
+                </div>
+              )}
+              
+              <div ref={chatEndRef} />
             </div>
 
             {/* Bottom input area form */}

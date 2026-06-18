@@ -32,6 +32,7 @@ export default function CartDrawer({
   const [shippingPhone, setShippingPhone] = useState<string>('');
   const [shippingAddress, setShippingAddress] = useState<string>('');
   const [shippingCity, setShippingCity] = useState<string>('Johannesburg');
+  const [whatsappUrl, setWhatsappUrl] = useState<string>('');
 
   // Math totals
   const subtotal = cartItems.reduce((sum, item) => sum + (item.product.priceZAR * item.quantity), 0);
@@ -73,12 +74,33 @@ export default function CartDrawer({
     }
     
     setIsCheckingOut(true);
-    // Simulate payment processing
+    
+    // Construct premium WhatsApp message invoice
+    const itemsList = cartItems
+      .map(item => `• ${item.quantity}x ${item.product.name} (${item.product.size}) — R${item.product.priceZAR * item.quantity} ZAR`)
+      .join('\n');
+    
+    const promoCodeText = appliedDiscount ? `\n🎁 *Promo Code Selected:* ${appliedDiscount.code} (-${appliedDiscount.percent}%)` : '';
+    
+    const text = `Hi Earthcure! I'd like to complete my premium order (ID: EC-92813-SA).\n\n*🛒 Basket Items:*\n${itemsList}${promoCodeText}\n\n*🚚 Courier Details:*\n• *Recipient:* ${shippingName}\n• *Phone:* ${shippingPhone}\n• *Destination Address:* ${shippingAddress}, ${shippingCity}\n\n*💵 Financial Summary:*\n• *Subtotal:* R${subtotal} ZAR\n• *Courier Speedpost:* ${isCourierFree ? 'FREE' : `R${courierFee} ZAR`}\n• *Grand Total:* R${grandTotal} ZAR\n\nPlease send through your invoice / South African payment details (EFT/Yoco) so I can complete our order!`;
+    const encodedText = encodeURIComponent(text);
+    const destinationUrl = `https://wa.me/447493208683?text=${encodedText}`;
+    
+    setWhatsappUrl(destinationUrl);
+
+    // Simulate database invoice logging and proceed
     setTimeout(() => {
       setIsCheckingOut(false);
       setCheckoutStep('success');
+      
+      // Try to auto open
+      try {
+        window.open(destinationUrl, '_blank');
+      } catch (err) {
+        console.warn('Automatic redirection failed, user can use success page button.', err);
+      }
       onClearCart();
-    }, 2000);
+    }, 1500);
   };
 
   return (
@@ -328,12 +350,14 @@ export default function CartDrawer({
                     </div>
                   </div>
 
-                  {/* Security trust banner */}
+                  {/* WhatsApp contact banner */}
                   <div className="p-3.5 bg-[#253A36]/50 rounded-xl border border-[#2D4540]/60 flex gap-3 text-left">
                     <ShieldCheck className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-sans font-medium text-[#E9E4D9] block leading-tight">Secure South African SSL Payment</span>
-                      <p className="text-[9px] text-[#E9E4D9]/60 leading-normal">Your payment is encrypted natively using standard local gateways (PayFast/Yoco 3D Secure). Zero credit card logs saved on Earthcure.</p>
+                      <span className="text-xs font-sans font-medium text-[#E9E4D9] block leading-tight">Order WhatsApp Confirmation</span>
+                      <p className="text-[9px] text-[#E9E4D9]/60 leading-normal">
+                        To finalize your order, you can contact us on WhatsApp at <strong className="text-[#D4AF37] font-bold">07493208683</strong>. Clicking below will automatically open WhatsApp with your pre-populated invoice details!
+                      </p>
                     </div>
                   </div>
 
@@ -345,11 +369,11 @@ export default function CartDrawer({
                     {isCheckingOut ? (
                       <>
                         <div className="w-4.5 h-4.5 border-2 border-[#1B2D2A] border-t-transparent rounded-full animate-spin" />
-                        <span>Validating Secure Gateway...</span>
+                        <span>Compiling WhatsApp Invoice...</span>
                       </>
                     ) : (
                       <>
-                        <span>Validate Order & Dispatch (R{grandTotal} ZAR)</span>
+                        <span>Proceed & Order via WhatsApp (R{grandTotal} ZAR)</span>
                         <ArrowRight className="w-4.5 h-4.5" />
                       </>
                     )}
@@ -381,7 +405,7 @@ export default function CartDrawer({
                       Thank You! Your Earthcure is Processing...
                     </h4>
                     <p className="text-xs text-[#E9E4D9]/70 leading-relaxed max-w-xs mx-auto">
-                      Your order is dispatched under legal SA Industrial Hemp Permit compliance. Your premium oils are being boxed at our Cape Town labs. We sent your tracking code to your email!
+                      Your order is logged and ready. Please click the button below to send your invoice to our official WhatsApp line at <strong>07493208683</strong> to organize South African delivery payment constraints!
                     </p>
                   </div>
 
@@ -404,13 +428,23 @@ export default function CartDrawer({
                     </div>
                   </div>
 
-                  <div className="pt-2 w-full">
+                  <div className="pt-2 w-full space-y-2.5">
+                    {whatsappUrl && (
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-4 bg-[#D4AF37] hover:bg-[#E9E4D9] text-[#1B2D2A] font-sans text-xs uppercase tracking-widest font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-[#D4AF37]/5 cursor-pointer text-center"
+                      >
+                        <span>Send Order on WhatsApp (07493208683)</span>
+                      </a>
+                    )}
                     <button
                       onClick={() => {
                         setCheckoutStep('cart');
                         onClose();
                       }}
-                      className="w-full py-3.5 bg-[#253A36] hover:bg-[#2A423D] border border-[#2D4540] text-white font-sans text-xs uppercase tracking-wider font-semibold rounded-none transition"
+                      className="w-full py-3.5 bg-[#253A36] hover:bg-[#2A423D] border border-[#2D4540] text-white font-sans text-xs uppercase tracking-wider font-semibold rounded-none transition cursor-pointer"
                     >
                       Continue Shopping
                     </button>
@@ -457,8 +491,8 @@ export default function CartDrawer({
                     <span>Proceed to Delivery Details</span>
                     <ArrowRight className="w-4.5 h-4.5" />
                   </button>
-                  <p className="text-[9px] text-[#E9E4D9]/40 text-center font-mono uppercase tracking-wider">
-                    Locked securely with AES-256 local banking standards.
+                  <p className="text-[9px] text-[#E9E4D9]/50 text-center font-mono uppercase tracking-widest">
+                    Secured and confirmed directly via WhatsApp (07493208683).
                   </p>
                 </div>
               </div>

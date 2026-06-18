@@ -112,7 +112,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 240,
     rating: 4.8,
     reviewsCount: 135,
-    imageUrl: '/catalog_image.png',
+    imageUrl: '/hemp_protein_powder.jpg',
     inStock: true,
     nutritionFacts: {
       servingSize: '30g',
@@ -191,7 +191,7 @@ export const INVEGROW_PRODUCTS: Product[] = [
     priceZAR: 160,
     rating: 4.9,
     reviewsCount: 122,
-    imageUrl: '/catalog_image.png',
+    imageUrl: '/amari_cbd_balm.png',
     inStock: true
   },
   {
