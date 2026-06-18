@@ -8,9 +8,78 @@ interface ProductVisualizerProps {
 
 export default function ProductVisualizer({ productId, className = '', fallbackUrl = '' }: ProductVisualizerProps) {
   const [hasError, setHasError] = useState(false);
+  const [attemptIndex, setAttemptIndex] = useState(0);
+
+  // Dynamically resolve possible naming and extension variations to robustly handle local/GitHub sync issues
+  const candidates = React.useMemo(() => {
+    if (!fallbackUrl) return [];
+    
+    const list: string[] = [fallbackUrl];
+    const extensions = ['.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG'];
+    const stem = fallbackUrl.replace(/\.(png|jpe?g|PNG|JPE?G)$/i, '');
+    
+    // Add extension variations of the same base stem
+    extensions.forEach(ext => {
+      const altUrl = stem + ext;
+      if (!list.includes(altUrl)) {
+        list.push(altUrl);
+      }
+    });
+
+    // Special fallback candidates for protein powder naming mismatch
+    if (productId === 'nutritious-hemp-protein-powder') {
+      const variations = [
+        '/Invegrow+hemp+protein+powder',
+        '/Invegrow_hemp_protein_powder',
+        '/Invegrow-hemp-protein-powder',
+        '/Invegrow%20hemp%20protein%20powder',
+        '/Invegrow hemp protein powder',
+        '/hemp_protein_powder',
+        '/hemp_protein'
+      ];
+      variations.forEach(v => {
+        extensions.forEach(ext => {
+          const vUrl = v + ext;
+          if (!list.includes(vUrl)) {
+            list.push(vUrl);
+          }
+        });
+      });
+    }
+
+    // Special fallback candidates for Amari Balm naming mismatch
+    if (productId === 'amari-cbd-topical-balm') {
+      const variations = [
+        '/amari_cbd_balm',
+        '/amari-cbd-balm',
+        '/Generated Image June 18, 2026 - 12_20PM',
+        '/Generated_Image_June_18_2026_-_12_20PM',
+        '/Generated%20Image%20June%2018,%202026%20-%2012_20PM'
+      ];
+      variations.forEach(v => {
+        extensions.forEach(ext => {
+          const vUrl = v + ext;
+          if (!list.includes(vUrl)) {
+            list.push(vUrl);
+          }
+        });
+      });
+    }
+
+    return list;
+  }, [fallbackUrl, productId]);
+
+  const handleImageError = () => {
+    if (attemptIndex < candidates.length - 1) {
+      setAttemptIndex(prev => prev + 1);
+    } else {
+      setHasError(true);
+    }
+  };
 
   // Prioritize showing actual uploaded local or remote images containing official photography
-  if (fallbackUrl && !hasError) {
+  if (fallbackUrl && !hasError && attemptIndex < candidates.length) {
+    const currentSrc = candidates[attemptIndex];
     return (
       <div className={`w-full h-full bg-gradient-to-br from-[#122421] to-[#0A1614] flex items-center justify-center p-2.5 overflow-hidden relative group rounded-none border border-[#2D4540]/30 ${className}`}>
         {/* Subtle decorative target scope grid line */}
@@ -18,13 +87,11 @@ export default function ProductVisualizer({ productId, className = '', fallbackU
         
         {/* Real photo showcase */}
         <img 
-          src={fallbackUrl} 
+          src={currentSrc} 
           alt={productId} 
           className="max-w-full max-h-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] group-hover:scale-[1.03] transition-transform duration-700 ease-out"
           referrerPolicy="no-referrer"
-          onError={() => {
-            setHasError(true);
-          }}
+          onError={handleImageError}
         />
         
         {/* Super premium minimalist overlay brand line */}
