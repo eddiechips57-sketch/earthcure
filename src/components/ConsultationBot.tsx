@@ -142,8 +142,18 @@ export default function ConsultationBot() {
       } else if (lowerText.includes('sleep') || lowerText.includes('insomnia') || lowerText.includes('night')) {
         botText = KNOWLEDGE_BASE.sleep.reply;
         suggestions = KNOWLEDGE_BASE.sleep.suggestions!;
-      } else if (lowerText.includes('track') || lowerText.includes('ec-92813-sa') || lowerText.includes('order')) {
-        botText = 'Parcels are tracked live. Let me query our South African Speedpost dispatch ledger for package reference: "EC-92813-SA".';
+      } else if (
+        lowerText.includes('track') || 
+        lowerText.includes('package') || 
+        lowerText.includes('parcel') || 
+        lowerText.includes('arrive') || 
+        lowerText.includes('order') || 
+        lowerText.includes('dispatch') || 
+        lowerText.includes('status') || 
+        lowerText.includes('ec-92813-sa') || 
+        lowerText.includes('where is my')
+      ) {
+        botText = 'Parcels are tracked live! I have queried our South African Speedpost ledger for your order "EC-92813-SA". It has been safely dispatched and is currently in transit, traversing the Karoo corridor. It is expected at your doorstep within 24–48 hours!';
         suggestions = ['Can I change physical address?', 'How is shipping calculated?'];
         trackingTimeline = [
           { stage: 'Order Processing', status: 'done', desc: 'Secure payment cleared. Sourcing active legal Industrial Hemp permit numbers.' },
